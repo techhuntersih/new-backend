@@ -23,12 +23,11 @@ const createNewApplication = async(req, res) => {
 
 const checkApplicationStatus = async (req, res) => {
     try{
-        
-          let query = `SELECT status
+        console.log(req.body.registration_number)
+        let query = `SELECT status
           FROM application_details
-          WHERE id=?
-          `
-       list = [req.registration_number]
+          WHERE id=?`
+       let list = [req.body.registration_number]
        const result = await dbExecution(query, list);
         //   let result = await connection.query(query);
         //     console.log("displayed")
